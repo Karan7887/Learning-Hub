@@ -1,0 +1,101 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="work-section">
+    <div class="work-main">
+        <form action="" method="post">{% csrf_token %}
+            <div class="form-control">
+                <p style="font-size: 15px;">Create Notes</p>
+                <label for="title-work">Subject*</label>
+                <input type="text" name="subject" id="title-work" required>
+                <label for="title-work">Title*</label>
+                <input type="text" name="title" id="title-work" required>
+                <label for="description-work">Description*</label>
+                <textarea class="text-area-notes" name="description" id="description-work" cols="20" rows="10"></textarea>
+                <label for="duedate"></label>
+                <input type="date" name="duedate" id="duedate" required>
+                <div class="checkbox-div">
+                    <input type="checkbox" name="finished" id="finished">
+                    <label for="finished">Is Finished</label>
+                </div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <table class="styled-table">
+            {% if homework|length  > 0%}
+            <thead>
+                <th>Subject</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Created On</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </thead>
+            {% else %}
+            <thead></thead>
+            {% endif %}
+            <tbody>
+                {% for note in homework %}
+                {% if forloop.counter|divisibleby:2 %}  
+                <tr class="active-row">
+                    <td>{{note.subject}}</td>
+                    <td>{{note.title}}</td>
+                    <td>
+                        {{note.description}}
+                    </td>
+                    <td>{{note.homework_date}}</td>
+                    {% if note.finish == True %}
+                    <td><input type="checkbox" checked onchange="((e) => {
+                        handleChange(e,{{note.id}})
+                    })(this)"></td>    
+                    {% else %}
+                    <td><input type="checkbox" onchange="((e) => {
+                        handleChange(e,{{note.id}})
+                    })(this)"></td>
+                    {% endif %}
+                    <td><a href="{% url 'homework_delete' note.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>{{note.subject}}</td>
+                    <td>{{note.title}}</td>
+                    <td>
+                        {{note.description}}
+                    </td>
+                    <td>{{note.homework_date}}</td>
+                    {% if note.finish == True %}
+                    <td><input type="checkbox" checked onchange="((e) => {
+                        handleChange(e,{{note.id}})
+                    })(this)"></td>    
+                    {% else %}
+                    <td><input type="checkbox" onchange="((e) => {
+                        handleChange(e,{{note.id}})
+                    })(this)"></td>
+                    {% endif %}
+                    <td><a href="{% url 'homework_delete' note.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const handleChange = (e,id)=>{
+            if(e.checked){
+                fetch(`/dashboard/homework/update/${id}/1`)
+            }
+            else{
+                fetch(`/dashboard/homework/update/${id}/0`)
+            }
+        }
+    </script>
+</section>
+{% endblock content %}

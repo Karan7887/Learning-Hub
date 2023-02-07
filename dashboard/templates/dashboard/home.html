@@ -1,0 +1,80 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="main-section"> 
+    <div class="main-content">
+        <a href="{% url 'notes_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/notes.jpg' %}"  >
+            </div>
+            <p class="para">Notes</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'homework_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/homework.jpg' %}"  >
+            </div>
+            <p class="para">Homework</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'youtube_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/youtube.jpg' %}"  >
+            </div>
+            <p class="para">Youtube</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'todo_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/todo.jpg' %}"  >
+            </div>
+            <p class="para">To Do</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'books_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/books.jpg' %}"  >
+            </div>
+            <p class="para">Books</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'dictionary_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/dictionary.jpg' %}"  >
+            </div>
+            <p class="para">Dictionary</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'wiki_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/wiki.jpg' %}"  >
+            </div>
+            <p class="para">Wiki-Pedia</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+        <a href="{% url 'conversion_page' %}" class="content-div">
+        <div>
+            <div class="image-block">
+                <img src="{% static 'images/conversion.jpg' %}"  >
+            </div>
+            <p class="para">Conversion</p>
+            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+        </div>
+        </a>
+    </div>
+</section>
+{% endblock content %}

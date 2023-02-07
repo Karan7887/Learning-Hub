@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="main-youtube">
+    <form action="" method="post">
+        <div class="youtube-section">
+            {% csrf_token %}
+            <input type="text" class="input-youtube" name="search" required placeholder="Enter word to Search">
+            <input type="submit" value="Search" class="youtube-search">
+        </div>
+    </form>
+    <div class="youtube-cards">
+        {% for temp in data %}
+        <div class="youtube-card">
+            
+                <div class="thumb">
+                    <a href="{{temp.link}}" class="anker-youtube-card">
+                        <img src="{{temp.thumb_url}}" alt="" srcset="">
+                    </a>
+                </div>
+                <div class="non-thumb">
+                    <p class="youtube-title">{{temp.title}}</p>
+                    <p class="youtube-channel">{{temp.channel_title}}</p>
+                    <p class="youtube-desc">{{temp.description}}</p>
+                </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+</section>
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="notes-section">
+    <div class="notes-main">
+        <form action="" method="post">{% csrf_token %}
+            <div class="form-control">
+                <p style="font-size: 15px;">Create Notes</p>
+                <label for="title-note">Title*</label>
+                <input type="text" name="title" id="title-note" required>
+                <label for="description-note">Description*</label>
+                <textarea class="text-area-notes" name="description" id="description-note" cols="30" rows="10" required></textarea>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <table class="styled-table">
+            {% if notes|length  > 0%}
+            <thead>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </thead>
+            {% else %}
+            <thead></thead>
+            {% endif %}
+            <tbody>
+                {% for note in notes %}
+                {% if forloop.counter|divisibleby:2 %}  
+                <tr class="active-row">
+                    <td>{{note.title}}</td>
+                    <td>
+                        {{note.description}}
+                    </td>
+                    <td><a href="{% url 'notes_delete' note.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>{{note.title}}</td>
+                    <td>
+                        {{note.description}}
+                    </td>
+                    <td><a href="{% url 'notes_delete' note.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock content %}

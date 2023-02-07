@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    {% load static %}
+    <div class="register_div">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2>Login</h2>
+            <div class="inner_register">
+                {% if error_msg != '' %}
+                <p style="font-size:smaller; font-weight:900; color:red;">{{error_msg}}</p>
+                {% endif %}
+                <input type="text" name="username" placeholder="Username" id="username">
+                <input type="password" name="password" placeholder="Confirm Password" id="password">
+                <input type="submit" value="Login">
+                <a style="font-size: x-small; font-weight: 900; color: black;" href="{% url 'register' %}">New User Click Here</a>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

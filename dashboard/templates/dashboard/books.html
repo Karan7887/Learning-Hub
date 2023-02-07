@@ -1,0 +1,42 @@
+{%  extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="books-section">
+    <div class="book-main">
+        <form action="" method="post">
+            <div class="youtube-section">
+                {% csrf_token %}
+                <input type="text" class="input-youtube" name="search" required placeholder="Enter word to Search">
+                <input type="submit" value="Search" class="youtube-search">
+            </div>
+        </form>
+        {% if exist == True %}
+        <div class="book-list-section">
+        {% for item in list %}
+        <div class="book-item">
+            <div>
+                <img src="{{item.thumbnail}}" style="    width: 170px;
+                height: 220px;">
+            </div>
+            <div style="width: -webkit-fill-available;
+            margin-left: 20px;">
+                <p style="font-weight: 800;">{{item.title}}</p>
+                <p style="font-size: 12px;">{{item.subtitle}}</p>
+                <p style="font-size: 13px;">{{item.authors}}</p>
+                <p style="font-size: 10px; overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* number of lines to show */
+                -webkit-box-orient: vertical;">{{item.desc}}</p>    
+                <a class="book-button-anker" href="{{item.infoLink}}"><button class="books-button">Buy Now</button></a>
+            </div>
+            
+        </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}

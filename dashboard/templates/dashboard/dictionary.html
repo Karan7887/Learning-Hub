@@ -1,0 +1,54 @@
+{%  extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="dict-section">
+    <div class="dict-main">
+        <form action="" method="post">
+            <div class="youtube-section">
+                {% csrf_token %}
+                <input type="text" class="input-youtube" name="search" required placeholder="Enter word to Search">
+                <input type="submit" value="Search" class="youtube-search">
+            </div>
+        </form>
+    </div>
+    {% if exist == True %}
+    <div class="dict-list">
+        <div>
+            <p style="font-weight: 600;
+            color: #17b317;">
+                {{word}}
+            </p>
+        </div>
+        <div>
+            <p>
+                {{text}}
+            </p>
+        </div>
+        <div>
+            <p>Meaning: {{definition}}</p>
+        </div>
+        <div>
+            <p>Example: {{example}}</p>
+        </div>
+        {% if audio != '#' %}
+        <div>
+            <p style="font-size: 12px;">Click to listen the pronounciation of this word</p>
+            <audio id="audio" style="display:none" src="{{audio}}" ></audio>
+            <div>
+                <i style="font-size: 30px;
+                color: #5fad47; cursor: pointer;" class="fa fa-volume-up" aria-hidden="true" onclick="playsound()"></i>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+
+<script>
+    function playsound(){
+         var audio = document.getElementById("audio");
+         audio.play();
+    }
+</script>
+
+{% endblock content %}

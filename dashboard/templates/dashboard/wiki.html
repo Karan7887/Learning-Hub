@@ -1,0 +1,18 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<section class="main-youtube">
+    <form action="" method="post">
+        <div class="youtube-section">
+            {% csrf_token %}
+            <input type="text" class="input-youtube" name="search" required placeholder="Enter word to Search">
+            <input type="submit" value="Search" class="youtube-search">
+        </div>
+    </form>
+    {% if content %}
+    <div class="wiki-content">
+        {{content}}
+    </div>
+    {% endif %}
+</section>
+{% endblock content %}

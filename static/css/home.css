@@ -1,0 +1,348 @@
+
+.main-section{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.main-youtube{
+    width: 100%;
+}
+
+.input-youtube{
+    width: 30%;
+    padding: 10px;
+    font-size: large;
+    margin: 0px 10px;
+}
+
+.youtube-search{
+    padding: 12px;
+}
+
+.youtube-search:hover{
+    cursor: pointer;
+}
+
+.youtube-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.notes-section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.work-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.notes-main{
+    width: 60%;
+    background-color: rgb(175, 175, 175);
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.todo-main{
+    width: 60%;
+    background-color: rgb(175, 175, 175);
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.work-main{
+    width: 60%;
+    background-color: rgb(175, 175, 175);
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.notes-main label{
+    font-size: 12px;
+}
+
+.todo-main label{
+    font-size: 12px;
+}
+
+
+.work-main label{
+    font-size: 12px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    flex-wrap: wrap;
+}
+.image-block{
+    width: 100%;
+}
+
+.content-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 21%;
+    margin: 20px 0px;
+    border: 1px solid grey;
+    text-align: center;
+    cursor: pointer;
+}
+.content-div img{
+    height: 120px;
+    width: 100%;
+}
+
+.para{
+    font-size: medium;
+    color: black;
+}
+.desc{
+    font-size: 14px;
+    color: black;
+}
+
+.content-div:hover{
+    box-shadow: 2px 2px 20px gray;
+    transition-duration: 1s;
+}
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form-control label{
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.form-control input[type=date], .form-control input[type=text]{
+    padding: 4px;
+    width: -webkit-fill-available;
+}
+.form-control textarea{
+    padding: 4px;
+    width: -webkit-fill-available;
+}
+
+.form-control button{
+    padding: 10px;
+    background-color: white;
+    margin: 15px 0px;
+    border-color: white;
+    cursor: pointer;
+}
+
+.checkbox-div{
+    margin-top: 5px;
+}
+
+.youtube-card{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 70%;
+    box-shadow: 2px 2px 18px #afafaf;
+}
+
+.non-thumb{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.youtube-cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.youtube-title{
+    font-family: Montserrat;
+    font-size: large;
+}
+.youtube-desc{
+    font-family: Montserrat;
+    font-size: 12px;
+}
+.youtube-channel{
+    font-size: medium;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+.wiki-content{
+    width: 80%;
+    margin: 0px 10%;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 5px 5px 20px grey;
+    white-space: pre-line;
+}
+
+.books-main{
+    width: 100%;
+}
+
+.book-item{
+    display: flex;
+    box-shadow: 2px 2px 18px #e5e5e5;
+    margin: 10px;
+    padding: 10px;
+}
+
+.books-section{
+    width: 100%;
+}
+
+.book-list-section{
+    width: 80%;
+    margin: 50px 10%;
+}
+
+
+.book-item div:nth-child(1){
+    display: flex;
+    width: 20%;
+}
+
+.book-item div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+
+.books-button{
+    background: #38894bc2;
+    border: white;
+    border-radius: 3px;
+    padding: 10px;
+    color: white;
+}
+
+.books-button:hover{
+    background: #2821d1c2;
+    cursor: pointer;
+}
+
+.dict-list{
+    text-align: center;
+    margin-top: 40px;
+    border: 1px solid green;
+    box-shadow: 10px 10px 10px 2px grey;
+    width: 80%;
+    margin: 100px 10%;
+}
+
+.field input{
+    padding: 5px;
+    width: -webkit-fill-available;
+}
+
+.register_div{
+    margin-left: 40%;
+    margin-top: 5%;
+    margin-right: 40%;
+    background: #01010033;
+    padding: 12px;
+    box-shadow: 10px 10px 20px grey;
+    opacity: 0.8;
+}
+
+.inner_register{
+    display: flex;
+    flex-direction: column;
+}
+
+.inner_register input{
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.inner_register a:hover{
+    color: blue;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+tbody tr td{
+    max-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+tbody tr td:last-child{
+    text-align: center;
+}
