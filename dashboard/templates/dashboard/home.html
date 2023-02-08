@@ -3,70 +3,68 @@
 {% block content %}
 <section class="main-section"> 
     <div class="main-content">
-        <a href="{% url 'notes_page' %}" class="content-div">
-        <div>
+        <!-- <a href="{% url 'notes_page' %}" class="content-div"> -->
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/notes.jpg' %}"  >
+                <a href="{% url 'notes_page' %}" class="content-div"><img src="{% static 'images/notes.jpg' %}" href="{% url 'notes_page' %}"  ></a>
             </div>
             <p class="para">Notes</p>
             <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
         </div>
-        </a>
-        <a href="{% url 'homework_page' %}" class="content-div">
-        <div>
+        <!-- </a> -->
+        
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/homework.jpg' %}"  >
+                <a href="{% url 'homework_page' %}" class="content-div"><img src="{% static 'images/homework.jpg' %}"  ></a>
             </div>
             <p class="para">Homework</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">Add Homework and assign them deadlines. They will be dislayed priortized by deadlines.</p>
         </div>
-        </a>
-        <a href="{% url 'youtube_page' %}" class="content-div">
-        <div>
+        
+        <div class="imp-block" >
             <div class="image-block">
-                <img src="{% static 'images/youtube.jpg' %}"  >
+                <a href="{% url 'youtube_page' %}" class="content-div"><img src="{% static 'images/youtube.jpg' %}"  ></a>
             </div>
             <p class="para">Youtube</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">Search Youtube and select your desired video to play it on youtube.</p>
         </div>
-        </a>
-        <a href="{% url 'todo_page' %}" class="content-div">
-        <div>
+        
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/todo.jpg' %}"  >
+                <a href="{% url 'todo_page' %}" class="content-div"><img src="{% static 'images/todo.jpg' %}"  ></a>
             </div>
             <p class="para">To Do</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">Add your to-do lists for your day and remove them as you finish</p>
         </div>
-        </a>
-        <a href="{% url 'books_page' %}" class="content-div">
-        <div>
+        
+        
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/books.jpg' %}"  >
+                <a href="{% url 'books_page' %}" class="content-div"><img src="{% static 'images/books.jpg' %}"  ></a>
             </div>
             <p class="para">Books</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">Browse Books from a list of neatly organized book menu.</p>
         </div>
-        </a>
-        <a href="{% url 'dictionary_page' %}" class="content-div">
-        <div>
+        
+        
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/dictionary.jpg' %}"  >
+                <a href="{% url 'dictionary_page' %}" class="content-div"><img src="{% static 'images/dictionary.jpg' %}"  ></a>
             </div>
             <p class="para">Dictionary</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">A vocabulary from book is troubling you? No Problem enter the word and the meaning will be displayed almost instantaneously</p>
         </div>
-        </a>
-        <a href="{% url 'wiki_page' %}" class="content-div">
-        <div>
+        
+        
+        <div class="imp-block">
             <div class="image-block">
-                <img src="{% static 'images/wiki.jpg' %}"  >
+                <a href="{% url 'wiki_page' %}" class="content-div"><img src="{% static 'images/wiki.jpg' %}"  ></a>
             </div>
             <p class="para">Wiki-Pedia</p>
-            <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
+            <p class="desc">Homework or Assignments? Search wikipedia to get faster results.</p>
         </div>
-        </a>
-        <a href="{% url 'conversion_page' %}" class="content-div">
+        
+        <!-- <a href="{% url 'conversion_page' %}" class="content-div">
         <div>
             <div class="image-block">
                 <img src="{% static 'images/conversion.jpg' %}"  >
@@ -74,7 +72,7 @@
             <p class="para">Conversion</p>
             <p class="desc">Create Notes to refer them later. They are stored permanently deleted.</p>
         </div>
-        </a>
+        </a> -->
     </div>
 </section>
 {% endblock content %}
