@@ -60,6 +60,7 @@ a{
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-direction: column;
 }
 
 
@@ -376,3 +377,4 @@ tbody tr td:last-child{
     height: 300px;
 
 }
+

@@ -42,3 +42,25 @@ body{
 .second-head div a{
     font-size: small;
 }
+
+.options-container:hover .options{
+    display: block !important; 
+
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.options a{
+    display: block;
+    padding: 12px;
+    /* width: 100%; */
+    color: white !important;
+}
+
+.options a:hover{
+    background-color: burlywood;
+}

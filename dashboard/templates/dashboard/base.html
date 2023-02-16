@@ -20,17 +20,45 @@
         <div class="header-style">
             <p class="first-head">
                 <a href="#">Student Study Portal</a>
+                
             </p>
+            <div>
+                <p style="color: white; font-weight: 600;">Hi {{request.user | capfirst}}</p>
+            </div>
             <div class="second-head">
-                <div>
-                    <a href="{% url 'render_homepage' %}">Home</a>
+
+                <div style="position: relative;">
+                    <a style="display: block; width:100%; height:100%;" href="/dashboard">Home</a>
                 </div>
                 <div>
                     <a href="#">Profile</a>
                 </div>
-                <div>
+                <div class="options-container" style="position: relative;">
                     <a href="#">Options</a>
+                    <div class="options" style=" display: none; position: absolute; top: 100%; padding: 24px 0px; background-color:rgb(42, 41, 41); left: -10px">
+                        <a href="/dashboard/notes">Notes</a>
+                        <a href="/dashboard/homework">Homework</a>
+                        <a href="/dashboard/youtube">Youtube</a>
+                        <a href="/dashboard/todo">Todo</a>
+                        <a href="/dashboard/books">Books</a>
+                        <a href="/dashboard/todo">WikiPedia</a>
+                        <a href="/dashboard/dictionary">Dictionary</a>
+
+                    </div>
                 </div>
+                <!-- <div>
+                    <label for="pet-select">Choose a pet:</label>
+                    <select name="option" id="option-select">
+                        <option value=""></option>
+                        <option value="notes"><a href="dashboard/notes">Notes</a></option>
+                        <option value="homework">Homework</option>
+                        <option value="youtube">Youtube</option>
+                        <option value="todo">ToDo</option>
+                        <option value="books">Books</option>
+                        <option value="dictionary">Dictionary</option>
+                        <option value="wikipedia">WikiPedia</option>
+                    </select>
+                </div> -->
                 <div>
                     <a href="{% url 'logout' %}">Logout</a>
                 </div>

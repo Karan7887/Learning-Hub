@@ -16,5 +16,7 @@ urlpatterns = [
     path('/logout',views.do_logout,name='logout'), 
     path('/notes/delete/<int:pk>', views.notes_delete, name='notes_delete'),
     path('/homework/delete/<int:pk>', views.homework_delete, name='homework_delete'),
-    path('/homework/update/<int:pk>/<int:status>', views.homework_update, name='homework_update')
+    path('/homework/update/<int:pk>/<int:status>', views.homework_update, name='homework_update'),
+    path('/todo/delete/<int:pk>', views.todo_delete, name='todo_delete'),
+    path('/todo/update/<int:pk>/<int:status>', views.todo_update, name='todo_update')
 ]

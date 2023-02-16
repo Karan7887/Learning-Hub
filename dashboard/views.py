@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Homework, Notes
+from .models import Homework, Notes, Todos
 import requests,wikipedia,random
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
@@ -12,7 +12,32 @@ def home(request):
 
 @login_required(login_url='login')
 def todo(request):
-    return render(request,'dashboard/todo.html')
+    if request.method == 'POST':
+        title = request.POST['title']
+        finish = request.POST.get('finished',False)
+        if finish is not None and finish == 'on':
+            finish = True
+        else:
+            finish = False
+        new_todo = Todos(user=request.user,title=title,finish=finish)
+        new_todo.save()
+    todos = Todos.objects.filter(user=request.user)
+    return render(request,'dashboard/todo.html',{'todos': todos})
+
+def todo_delete(request,pk):
+    todo = Todos.objects.get(id=pk)
+    todo.delete()
+    return redirect('todo_page')
+
+def todo_update(request,pk,status):
+    todo = Todos.objects.filter(id=pk)
+    b = False
+    if status == 1:
+        b = True
+    else:
+        b = False
+    todo.update(finish=b)
+    return redirect('todo_page')
 
 def do_logout(request):
     logout(request)
@@ -138,9 +163,9 @@ def homework(request):
             finish = True
         else:
             finish = False
-        new_homework = Homework(subject=subject,title=title,description=desc,homework_date=date_,finish=finish)
+        new_homework = Homework(user=request.user,subject=subject,title=title,description=desc,homework_date=date_,finish=finish)
         new_homework.save()
-    homeworks = Homework.objects.all()
+    homeworks = Homework.objects.filter(user=request.user)
     return render(request,'dashboard/homework.html',{'homework': homeworks})
 
 def homework_delete(request,pk):
@@ -157,14 +182,19 @@ def homework_update(request,pk,status):
         b = False
     homework.update(finish=b)
     return redirect('homework_page')
+
+
+
 def notes(request):
+    current_user = request.user
+    print(current_user)
     notes = []
     if request.method == 'POST':
         title = request.POST['title']
         desc = request.POST['description']
-        new_note = Notes(title=title,description=desc)
+        new_note = Notes(user=current_user,title=title,description=desc)
         new_note.save()
-    notes = Notes.objects.all()
+    notes = Notes.objects.filter(user=current_user)
     return render(request,'dashboard/notes.html',{'notes': notes})
 
 def notes_delete(request,pk):

@@ -4,7 +4,7 @@
 
 <section class="todo-section">
     <div class="todo-main">
-        <form action="" method="post">
+        <form action="" method="post">{% csrf_token %}
             <div class="form-control">
                 <p style="font-size: 15px;">Create Todo</p>
                 <label for="title-todo">Title*</label>
@@ -17,6 +17,68 @@
             </div>
         </form>
     </div>
+    <div>
+        <table class="styled-table">
+            {% if todos|length  > 0%}
+            <thead>
+                <th>Title</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </thead>
+            {% else %}
+            <thead></thead>
+            {% endif %}
+            <tbody>
+                {% for todo in todos %}
+                {% if forloop.counter|divisibleby:2 %}  
+                <tr class="active-row">
+                    <td>{{todo.title}}</td>
+                    {% if todo.finish == True %}
+                    <td><input type="checkbox" checked onchange="((e) => {
+                        handleChange(e,{{todo.id}})
+                    })(this)"></td>    
+                    {% else %}
+                    <td><input type="checkbox" onchange="((e) => {
+                        handleChange(e,{{todo.id}})
+                    })(this)"></td>
+                    {% endif %}
+                    <td><a href="{% url 'todo_delete' todo.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>{{todo.title}}</td>
+                    {% if todo.finish == True %}
+                    <td><input type="checkbox" checked onchange="((e) => {
+                        handleChange(e,{{todo.id}})
+                    })(this)"></td>    
+                    {% else %}
+                    <td><input type="checkbox" onchange="((e) => {
+                        handleChange(e,{{todo.id}})
+                    })(this)"></td>
+                    {% endif %}
+                    <td><a href="{% url 'todo_delete' todo.id %}">
+                        <i style="font-size: 30px;
+                        color: red; cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    </a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const handleChange = (e,id)=>{
+            if(e.checked){
+                fetch(`/dashboard/todo/update/${id}/1`)
+            }
+            else{
+                fetch(`/dashboard/todo/update/${id}/0`)
+            }
+        }
+    </script>
 </section>
 
 {% endblock content %}
